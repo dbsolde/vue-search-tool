@@ -66,6 +66,10 @@ export default {
         margin: 50px auto 100px;
         .row {
             margin: 0 auto;
+            &:last-child {
+                margin-top: 50px;
+                border-top: 1px solid $text-gray;
+            }
         }
         
         .article-content {
