@@ -4,7 +4,7 @@
             v-for="cat in category" 
             :key="cat.id">
             <i class="fa" :class="['fa-'+cat.icon]"></i>
-            <router-link :to="{path: `/category/${cat.id}`, query: { categoryName: cat.title } }">
+            <router-link :to="{path: `/category/${cat.id}` }">
                 <h2>{{ cat.title }}</h2>
             </router-link>
             <p>{{ cat.totalArticle }} articles</p>

@@ -12,12 +12,16 @@ export default {
         return {
             search: ''
         }
-    },
+    },    
     methods: {
         handleSearch() {
             if(this.search) {
                 this.$store.dispatch("filterCategory", this.search.toLowerCase())
                 this.search = ''
+                
+                if(this.$route.name !== 'categories') {
+                    this.$router.replace({ path: '/' })
+                }
             }
         }
     }

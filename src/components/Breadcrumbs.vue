@@ -1,5 +1,4 @@
 <template>
-    <!-- Refactor this :/ -->
     <div id="breadcrumbs">
         <ul>
             <li class="active">
@@ -9,13 +8,13 @@
             <li v-if="this.$route.params.catId">
                 <a  v-if="this.$route.params.articleId"
                     :href="`/#/category/${this.$route.params.catId}`">
-                    {{ this.$route.query.categoryName }}
+                    {{ category.title }}
                 </a>
-                <span v-else>{{ this.$route.query.categoryName }}</span>
+                <span v-else>{{ category.title }}</span>
             </li>
             <i v-if="this.$route.params.articleId" class="fa fa-angle-right" aria-hidden="true"></i>
             <li v-if="this.$route.params.articleId">
-                {{ this.$route.query.articleName }}
+                <span>{{ article.title }}</span>
             </li>
         </ul>        
     </div>
@@ -23,7 +22,14 @@
 
 <script>
 export default {
-    
+    computed: {
+        category() {
+            return this.$store.getters['getActiveCategory'](this.$route.params.catId)
+        },
+        article() {
+            return this.$store.getters['getArticle'](this.$route.params.articleId)
+        },
+    }
 }
 </script>
 

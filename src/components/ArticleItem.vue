@@ -6,8 +6,7 @@
             <i class="fa" :class="['fa-'+article.icon]"></i>
             <div class="content">
                 <router-link :to="{
-                    path: `/category/${id}/${article.id}`, 
-                    query: { articleName: article.title, categoryName: category } }">
+                    path: `/category/${id}/${article.id}` }">
                     <h3>{{ article.title }}</h3>
                 </router-link>
                 <span>{{ moment(article.updatedOn).fromNow() }}</span>
@@ -24,8 +23,7 @@ export default {
     name: 'Articles',
     data() {
         return {
-            moment: moment,
-            category: this.$route.query.categoryName
+            moment: moment
         }
     },
     props: {

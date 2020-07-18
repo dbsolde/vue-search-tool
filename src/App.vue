@@ -1,19 +1,16 @@
 <template>
 	<div id="app">
 		<tawk-header />
-		<search-input />
 		<router-view />
 	</div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Search from './components/Search.vue'
 
 export default {
 	components:{
-		'tawk-header': Header,
-		'search-input': Search
+		'tawk-header': Header
 	}
 }
 </script>
